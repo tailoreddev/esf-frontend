@@ -1,0 +1,117 @@
+/* =Project specific
+===================================================== */
+
+// Media queries & breakpoints
+@mixin breakpoint($point) {
+
+	// Does browser support media queries
+	$media-query-support: true !global !default;
+
+	// Mobile first
+	@if ($media-query-support) {
+
+		$x-large:      "(min-width: 1400px)";
+		$large:        "(min-width: 1200px)";
+		$medium-large: "(min-width: 1000px)";
+		$medium:       "(min-width: 800px)";
+		$small-medium: "(min-width: 600px)";
+		$small:        "(min-width: 400px)";
+
+		@if $point == x-large {
+			@media #{$x-large}  { @content; }
+		}
+		@else if $point == large {
+			@media #{$large}  { @content; }
+		}
+		@else if $point == medium-large {
+			@media #{$medium-large}  { @content; }
+		}
+		@else if $point == medium {
+			@media #{$medium}  { @content; }
+		}
+		@else if $point == small-medium {
+			@media #{$small-medium}  { @content; }
+		}
+		@else if $point == small {
+			@media #{$small}  { @content; }
+		}
+
+	}
+
+	// max-width
+	@if ($media-query-support) {
+
+		$to-x-large:      "(max-width: 1399px)";
+		$to-large:        "(max-width: 1199px)";
+		$to-medium-large: "(max-width: 999px)";
+		$to-medium:       "(max-width: 799px)";
+		$to-small-medium: "(max-width: 599px)";
+		$to-small:        "(max-width: 399px)";
+
+		@if $point == to-x-large {
+			@media #{$to-x-large}  { @content; }
+		}
+		@else if $point == to-large {
+			@media #{$to-large}  { @content; }
+		}
+		@else if $point == to-medium-large {
+			@media #{$to-medium-large}  { @content; }
+		}
+		@else if $point == to-medium {
+			@media #{$to-medium}  { @content; }
+		}
+		@else if $point == to-small-medium {
+			@media #{$to-small-medium}  { @content; }
+		}
+		@else if $point == to-small {
+			@media #{$to-small}  { @content; }
+		}
+
+	}
+
+	@else {
+		@content;
+	}
+
+}
+
+// Colors
+$brand-maincolor:  #ae2234; // Red
+$brand-auxcolor:   #3e3e7b; // Blue
+
+$brand-section1:   #00b6f1; // Service blue
+$brand-section2:   #c7197d; // Service purple
+$brand-section3:   #00a651; // Service green
+$brand-section4:   #fcaf17; // Service orange
+
+$brand-color1:     #ebebeb; // Grey 1 (page background)
+$brand-color2:     #e1e1e1; // Grey 2 (footer border)
+$brand-color3:     #909090; // Grey 3 (button grey)
+$brand-color4:     #464646; // Grey 4 (secondary navigation)
+
+$brand-color5:     #a6ce39; // Button green
+
+$bordercolor:      #eee;
+$linkcolor:        #ae2234;
+
+$successcolor:     #38b44a; // Green
+$warningcolor:     #ffd400; // Orange
+$dangercolor:      #ee1c24; // Danger
+
+// Z-index
+$zindex-header: 400;
+$zindex-onheader: 410;
+
+// Font family
+$mainfont    : 'Source Sans Pro', $helvetica;
+$auxfont     : 'Source Sans Pro', $helvetica;
+
+// Font weights
+$light:   300;
+$regular: 400;
+$bold:    700;
+
+// Icons
+$icon-menu       :"\e608";
+$icon-x          :"\e607";
+$icon-arrow-down :"\e606";

@@ -1,0 +1,69 @@
+/* =Main
+===================================================== */
+
+.section-main {
+
+	overflow: hidden;
+	background-color: #fff;
+
+	.intro-content,
+	.main-content,
+	.secondary-content {
+		@include clearfix;
+		margin-bottom: 1.5em;
+		&:last-child { margin-bottom: 0; }
+		@include breakpoint(medium) {
+			margin-bottom: 2em;
+			&:last-child { margin-bottom: 0; }
+		}
+
+	}
+
+	.intro-content {
+
+		@extend %container-padding;
+		@extend %container-pull-top;
+		width: 300%;
+		padding-left: 100%;
+		padding-right: 100%;
+		margin-left: -100%;
+		margin-right: -100%;
+		background-color: #eee;
+		.page-title { margin-bottom: 0; }
+
+		.home & {
+			background-color: transparent;
+			width: auto;
+			padding-left: 0;
+			padding-right: 0;
+			margin-left: 0;
+			margin-right: 0;
+			margin-bottom: 0;
+		}
+
+	}
+
+	@include breakpoint(medium) {
+
+		.main-content {
+			float: left;
+			width: 60%;
+			margin-bottom: 0;
+		}
+		.secondary-content {
+			float: right;
+			width: 36%;
+			margin-bottom: 0;
+		}
+
+		.full-width & {
+			.main-content,
+			.secondary-content {
+				float: none;
+				width: 100%;
+			}
+		}
+
+	}
+
+}

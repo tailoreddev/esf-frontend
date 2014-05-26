@@ -1,0 +1,96 @@
+/* =Styleguide
+===================================================== */
+
+.style-group {
+
+	border: 1px solid rgba(0,0,0,.1);
+	border-radius: .25em;
+	margin-bottom: 2em;
+
+	.style-heading {
+		@include font-size(18);
+		text-transform: uppercase;
+		padding: .5em 1em;
+		margin-bottom: 0;
+		background-color: #fff;
+		border-top-left-radius: .25em;
+		border-top-right-radius: .25em;
+	}
+	.style-content {
+		@include clearfix;
+		border-top: 1px solid rgba(0,0,0,.1);
+		padding: 2em;
+		background-color: #fff;
+		border-bottom-left-radius: .25em;
+		border-bottom-right-radius: .25em;
+		&.transparent { background-color: transparent; }
+	}
+
+}
+
+.style-color {
+
+	color: #fff;
+	border: 1px solid #ddd;
+	padding: 1em 1.5em;
+
+	dt {
+		font-weight: $bold;
+		margin: 0;
+	}
+	dd {
+		margin: 0;
+	}
+
+	&.var-brand-maincolor { background-color: $brand-maincolor; }
+	&.var-brand-auxcolor  { background-color: $brand-auxcolor; }
+	&.var-brand-section1  { background-color: $brand-section1; }
+	&.var-brand-section2  { background-color: $brand-section2; }
+	&.var-brand-section3  { background-color: $brand-section3; }
+	&.var-brand-section4  { background-color: $brand-section4; }
+	&.var-brand-color1    { background-color: $brand-color1; color: #222; }
+	&.var-brand-color2    { background-color: $brand-color2; color: #222; }
+	&.var-brand-color3    { background-color: $brand-color3; }
+	&.var-brand-color4    { background-color: $brand-color4; }
+	&.var-brand-color5    { background-color: $brand-color5; }
+	&.var-linkcolor       { background-color: $linkcolor; }
+	&.var-bordercolor     { background-color: $bordercolor; color: #222; }
+	&.var-successcolor     { background-color: $successcolor; }
+	&.var-warningcolor     { background-color: $warningcolor; color: #000; }
+	&.var-dangercolor     { background-color: $dangercolor; }
+
+	@include breakpoint(medium) {
+		float: left;
+		width: 49%;
+		margin-left: 2%;
+		margin-bottom: 2%;
+		&:nth-child(2n+1) {
+			margin-left: 0;
+			clear: both;
+		}
+	}
+
+}
+
+.style-buttons {
+	.button {
+		margin: 0 1em 1em 0;
+		display: inline-block;
+	}
+}
+
+
+.style-icons {
+	@include breakpoint(small-medium) {
+		li {
+			margin-bottom: .5em;
+			display: inline-block;
+			min-width: 12em;
+		}
+	}
+}
+
+.style-outline {
+	@extend %island-padding;
+	@extend %style-outset;
+}

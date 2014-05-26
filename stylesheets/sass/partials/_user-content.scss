@@ -1,0 +1,29 @@
+/* =User content
+===================================================== */
+
+.user-content {
+	clear: both;
+	ul {
+		list-style: disc;
+		margin-left: 1.5em;
+		margin-bottom: 1em;
+	}
+	ol {
+		list-style: decimal;
+		margin-left: 1.5em;
+		margin-bottom: 1em;
+		ol { list-style: lower-latin; }
+	}
+	ul ul,
+	ol ul,
+	ul ol,
+	ol ol {
+		margin-bottom: 0;
+	}
+	li {
+		li {
+			font-size: 1em;
+			margin-left: 1.5em;
+		}
+	}
+}

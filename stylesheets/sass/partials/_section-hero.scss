@@ -1,0 +1,117 @@
+/* =Hero
+===================================================== */
+
+.section-hero {
+
+	background-color: #fff;
+	border-bottom: 1px solid $bordercolor;
+	@include background-image(linear-gradient(to top, transparent, rgba(0,0,0,.1)));
+
+}
+
+.card {
+
+	position: relative;
+	padding: 1.5em 1.5em 1.5em 2em;
+	margin-bottom: 1em;
+	border: 1px solid $bordercolor;
+	background-color: #fff;
+	@include background-image(linear-gradient(transparent, rgba(0,0,0,.05)));
+	box-shadow: 0 .125em .75em 0 rgba(0,0,0,.1);
+
+	&:last-child { margin-bottom: 0; }
+
+	&.color-1 .detail { background-color: $brand-section1; }
+	&.color-2 .detail { background-color: $brand-section2; }
+	&.color-3 .detail { background-color: $brand-section3; }
+	&.color-4 .detail { background-color: $brand-section4; }
+
+	.detail {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: .5em;
+	}
+
+	.title {
+		a {
+			color: #222;
+			&:hover,
+			&:focus {
+				color: $linkcolor;
+			}
+		}
+	}
+	.summary {
+		p {
+			color: #888;
+			margin-bottom: 0;
+			@include font-size(16);
+		}
+	}
+
+	.action {
+		@include clearfix;
+	}
+	.button {
+		float: left;
+		margin-top: em(16,14);
+		margin-right: em(10,14);
+	}
+
+	@include breakpoint(medium) {
+
+		padding: 2em;
+		float: left;
+		width: percentage(450/940);
+		margin-left: percentage(40/940);
+		margin-bottom: percentage(40/940);
+
+		.detail { width: 1em; }
+		.summary p { @include font-size(18); }
+
+		/* Border on the left */
+		&.card-1,
+		&.card-3 {
+			padding-left: 2.75em;
+		}
+
+		/* Border on the right */
+		&.card-2,
+		&.card-4 {
+			padding-right: 2.75em;
+			.detail {
+				left: auto;
+				right: 0;
+			}
+		}
+
+		/* Reset margin */
+		&.card-1,
+		&.card-3 { margin-left: 0; }
+
+		&.card-3,
+		&.card-4 { margin-bottom: 0; }
+
+	}
+
+}
+
+@include breakpoint(x-large) {
+	/* Pull left/right */
+	.hero-content {
+		margin-left: -7em;
+		margin-right: -7em;
+	}
+	.card {
+		&.card-1,
+		&.card-3 {
+			padding: 3em 3em 3em 7em;
+		}
+		&.card-2,
+		&.card-4 {
+			padding: 3em 7em 3em 3em;
+		}
+	}
+}

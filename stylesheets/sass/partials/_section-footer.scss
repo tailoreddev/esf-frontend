@@ -1,0 +1,167 @@
+/* =Footer
+===================================================== */
+
+.section-footer {
+
+	border-top: .625em solid $brand-color2;
+
+	h3 {
+		color: #444;
+		@include font-size(18);
+		line-height: 1.4;
+		margin-bottom: em(10,18);
+	}
+	p {
+		color: #999;
+		@include font-size(14);
+		margin-bottom: em(10,14);
+	}
+	li {
+		@include font-size(14);
+		margin-bottom: 0;
+	}
+	a {
+		color: $brand-auxcolor;
+	}
+
+	/* Footer info */
+	.footer-info {
+		@include clearfix;
+		padding-left: 140px;
+		margin-bottom: 2em;
+		h3 {
+			padding: .25em 0;
+			@include font-size(16);
+			line-height: 1.5;
+			font-weight: $regular;
+		}
+		.logo {
+			float: left;
+			margin-left: -140px;
+		}
+		@include breakpoint(medium) {
+			float: left;
+			width: percentage(380/940);
+			margin-bottom: 0;
+		}
+	}
+
+	/* Footer navigation */
+	.footer-navigation {
+		a {
+			display: block;
+			padding: .25em 0;
+		}
+		li {
+			@include font-size(16);
+			line-height: 1.5;
+		}
+		@include breakpoint(small-medium) {
+			@include clearfix;
+			.column {
+				float: left;
+				width: 48%;
+				margin-left: 4%;
+				&:first-child { margin-left: 0; }
+			}
+		}
+		@include breakpoint(medium) {
+			float: left;
+			width: percentage(460/940);
+			margin-left: percentage(20/940);
+			.column {
+				width: percentage(220/460);
+				margin-left: percentage(20/460);
+			}
+		}
+	}
+
+	/* Footer small */
+	.footer-small {
+		float: left;
+		width: 100%;
+		padding-top: 1em;
+		margin-top: 1em;
+		border-top: 1px dotted #b1b1b1;
+
+		@include breakpoint(medium) {
+			padding-top: 2em;
+			margin-top: 2em;
+		}
+
+		@include breakpoint(medium-large) {
+			padding-top: 2.5em;
+			margin-top: 2.5em;
+		}
+
+	}
+
+	/* Return top */
+	.return-top {
+		@include font-size(24);
+		line-height: 1;
+		margin-bottom: 0;
+		margin-top: em(10,24);
+		a {
+			color: #888;
+			text-decoration: none;
+			&:hover,
+			&:focus {
+				color: $brand-auxcolor;
+			}
+		}
+		.label { @include visually-hidden; }
+
+		@include breakpoint(medium) {
+			float: left;
+			width: percentage(60/940);
+			margin-left: percentage(20/940);
+			text-align: right;
+			a {
+				position: relative;
+				top: -.375em;
+			}
+		}
+	}
+
+	/* Site info */
+	.site-info {
+		display: block;
+		a {
+			text-decoration: none;
+			color: #999;
+			border-bottom: 1px solid #ccc;
+			&:hover,
+			&:focus {
+				color: #444;
+			}
+		}
+		@include breakpoint(small-medium) {
+			float: left;
+		}
+	}
+
+	/* Site by */
+	.site-by {
+		display: block;
+		text-align: center;
+		margin-top: em(20, 16);
+		@include font-size(16);
+		a {
+			color: #999;
+			text-decoration: none;
+			&:hover,
+			&:focus {
+				color: #444;
+			}
+		}
+		.label {
+			@include visually-hidden;
+		}
+		@include breakpoint(small-medium) {
+			margin-top: 0;
+			float: right;
+		}
+	}
+
+}

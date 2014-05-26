@@ -1,0 +1,395 @@
+/* =Information
+
+	Design:     Emanuel Blagonic
+	HTML/CSS:   Lucijan Blagonic
+	WordPress:  Zoran Ugrina
+
+===================================================== */
+
+/* =Cheatsheet
+
+	Media queries
+
+	@media (min-width)
+
+		x-large:      1400px
+		large:        1200px
+		medium-large: 1000px
+		medium:       800px
+		small-medium: 600px
+		small:        400px
+
+	@media (max-width)
+
+		to-x-large:      1399px
+		to-large:        1199px
+		to-medium-large: 999px
+		to-medium:       799px
+		to-small-medium: 599px
+		to-small:        399px
+
+	Defined in _base.scss
+
+	----------------------------
+
+	HTML structure
+
+	.section-header
+		.container
+			.site-branding
+				.site-logo
+				.site-title
+	.section-nav
+		.container
+	.section-hero
+		.container
+	.section-main
+		.container
+			.main-content
+			.secondary-content
+		.container
+	.section-footer
+		.container
+
+===================================================== */
+
+/* =Include
+===================================================== */
+
+@import 'normalize.css';   // css/normalize.css
+@import 'bourbon/bourbon'; // Bourbon
+@import 'partials/addons'; // Mixins
+@import 'partials/base';   // Variables
+
+/* =Welcome
+===================================================== */
+
+* {
+	@include box-sizing(border-box);
+}
+
+body {
+	font: 100%/1.5 $mainfont;
+	color: #555;
+	background-color: $brand-color1;
+}
+
+/* =Extend
+===================================================== */
+
+%container-padding {
+	padding: 1em;
+	@include breakpoint(small)        { padding: 1.5em; }
+	@include breakpoint(small-medium) { padding: 2em;   }
+	@include breakpoint(medium)       { padding: 2.5em; }
+}
+
+%container-pull-top {
+	margin-top: -1em;
+	@include breakpoint(small)        { margin-top: -1.5em; }
+	@include breakpoint(small-medium) { margin-top: -2em;   }
+	@include breakpoint(medium)       { margin-top: -2.5em; }
+}
+
+%container-pull-bottom {
+	margin-bottom: -1em;
+	@include breakpoint(small)        { margin-bottom: -1.5em; }
+	@include breakpoint(small-medium) { margin-bottom: -2em;   }
+	@include breakpoint(medium)       { margin-bottom: -2.5em; }
+}
+
+%container-pull-side {
+	margin-left: -1em; margin-right: -1em;
+	@include breakpoint(small)        { margin-left: -1.5em; margin-right: -1.5em;  }
+	@include breakpoint(small-medium) { margin-left: -2em;   margin-right: -2em;    }
+	@include breakpoint(medium)       { margin-left: -2.5em; margin-right: -2.5em;  }
+}
+
+%container-push-top {
+	margin-top: 1em;
+	@include breakpoint(small)        { margin-top: 1.5em; }
+	@include breakpoint(small-medium) { margin-top: 2em;   }
+	@include breakpoint(medium)       { margin-top: 2.5em; }
+}
+
+%container-push-bottom {
+	margin-bottom: 1em;
+	@include breakpoint(small)        { margin-bottom: 1.5em; }
+	@include breakpoint(small-medium) { margin-bottom: 2em;   }
+	@include breakpoint(medium)       { margin-bottom: 2.5em; }
+}
+
+%island-padding {
+	padding: 1.5em;
+	@include breakpoint(small)        { padding: 2em; }
+}
+
+%style-outset {
+	border: 1px solid $bordercolor;
+	background-color: #fff;
+	box-shadow: 0 .125em .125em 0 rgba(0,0,0,.2);
+}
+
+/* =Import
+===================================================== */
+
+@import 'partials/typography';
+@import 'partials/table';
+@import 'partials/forms';
+@import 'partials/user-content';
+@import 'partials/section-nav';
+@import 'partials/section-header';
+@import 'partials/section-footer';
+@import 'partials/section-main';
+@import 'partials/section-hero';
+@import 'partials/widgets';
+@import 'partials/styleguide';
+
+/* =Layout
+===================================================== */
+
+.container {
+	text-align: left;
+	margin: 0 auto;
+	max-width: 72.5em;
+	position: relative;
+	@include clearfix;
+	@extend %container-padding;
+}
+
+/* =Buttons
+===================================================== */
+
+.button,
+button {
+
+	display: inline-block;
+
+	text-align: center;
+	text-transform: uppercase;
+	@include font-size(14);
+	line-height: 1.45;
+	font-family: $auxfont;
+	font-weight: $bold;
+
+	padding: em(9,14) 1em;
+
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,.4);
+	background-color: $brand-maincolor;
+	border: 1px solid $brand-maincolor;
+	border-color: darken($brand-maincolor, 05%) darken($brand-maincolor, 10%) darken($brand-maincolor, 15%) darken($brand-maincolor, 10%);
+	cursor: pointer;
+	border-radius: em(4,14);
+	@include background-image(linear-gradient(bottom, rgba(0,0,0,.2), transparent));
+
+	@include transition(all .05s ease-in);
+
+	&:hover,
+	&:focus {
+		color: #fff;
+		background-color: darken($brand-maincolor, 5%);
+		text-decoration: none;
+	}
+	&:active {}
+
+	/* Secondary button, grey */
+	&.button-secondary {
+		background-color: #999;
+		border-color: darken(#999, 05%) darken(#999, 10%) darken(#999, 15%) darken(#999, 10%);
+		&:hover,
+		&:focus {
+			background-color: darken(#999,10%);
+			border-color: darken(#999, 10%) darken(#999, 15%) darken(#999, 20%) darken(#999, 15%);
+		}
+	}
+
+	/* Invert button */
+	&.button-invert {
+		border: 1px solid #ddd;
+		background: none;
+		background-color: #fff;
+		color: #444;
+		text-shadow: none;
+		&:hover,
+		&:focus {
+			background-color: #eee;
+			color: $brand-maincolor;
+		}
+		.value { background-color: $brand-maincolor; }
+	}
+
+	/* Button small */
+	&.button-small {
+		padding: em(4,16) em(8,16);
+	}
+
+	/* Button large */
+	&.button-large {
+		@include font-size(18);
+		padding: em(10,18) em(20,18);
+	}
+
+	/* Button action, green */
+	&.button-action {
+		background-color: $brand-color5;
+		border-color: darken($brand-color5, 05%) darken($brand-color5, 10%) darken($brand-color5, 15%) darken($brand-color5, 10%);
+		&:hover,
+		&:focus {
+			background-color: darken($brand-color5,10%);
+			border-color: darken($brand-color5, 10%) darken($brand-color5, 15%) darken($brand-color5, 20%) darken($brand-color5, 15%);
+		}
+	}
+
+	/* Value inside a button */
+	.value {
+		float: left;
+		color: #fff;
+		text-shadow: 0 1px 1px rgba(0,0,0,.4);
+		background-color: rgba(0,0,0,.4);
+
+		padding: em(10,14) 1em;
+		margin-top: -(em(10,14));
+		margin-bottom: -(em(10,14));
+		margin-left: -(em(15,14));
+		margin-right: .75em;
+		border-top-left-radius: em(4,14);
+		border-bottom-left-radius: em(4,14);
+	}
+
+}
+
+/* =Generic
+===================================================== */
+
+.skip-links {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #fff;
+	z-index: 1000;
+	a {
+		@include font-size(12);
+		font-weight: 700;
+		padding: .5em .75em;
+		display: block;
+		background-color: #fff;
+		@include visually-hidden;
+		box-shadow: 0 0 1em 0 rgba(0,0,0,.2);
+		&:focus {
+			@include visually-visible;
+		}
+	}
+}
+
+ul, ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid #ddd;
+	border-color: rgba(0,0,0,.1);
+	margin: 1em 0 0 0;
+	padding: 1em 0 0 0;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* Messages */
+.message {
+
+	border: 1px solid mix($bordercolor, #000, 90%);
+	background-color: #fff;
+	padding: .75em 1em;
+	margin-bottom: 1em;
+
+	&:last-child { margin-bottom: 0; }
+
+	h2 {
+		color: #222;
+		color: rgba(0,0,0,.8);
+		@include font-size(20);
+		font-weight: $bold;
+	}
+	p {
+		color: #222;
+		color: rgba(0,0,0,.8);
+		@include font-size(16);
+		margin-bottom: 0;
+	}
+	a {
+		text-decoration: underline;
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+
+	&.message-success {
+		background-color: $successcolor;
+		@extend %message-invert;
+	}
+	&.message-warning {
+		background-color: $warningcolor;
+		border-color: transparent;
+		a { color: #000; }
+	}
+	&.message-danger {
+		background-color: $dangercolor;
+		@extend %message-invert;
+	}
+
+}
+
+%message-invert {
+	border-color: transparent;
+	h1, h2, h3, h4 { color: #fff; }
+	p { color: #fff; }
+	strong { color: #fff; }
+	a {
+		color: #fff;
+		text-decoration: underline;
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+}
+
+/* =Icons
+===================================================== */
+
+@font-face {
+	font-family: 'esf';
+	src:url('../../assets/fonts/esf.eot?-j9rms8');
+	src:url('../../assets/fonts/esf.eot?#iefix-j9rms8') format('embedded-opentype'),
+		url('../../assets/fonts/esf.woff?-j9rms8') format('woff'),
+		url('../../assets/fonts/esf.ttf?-j9rms8') format('truetype'),
+		url('../../assets/fonts/esf.svg?-j9rms8#esf') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	@include icon-font;
+}
+
+.icon-tailored:before    { content: "\e600"; }
+.icon-home:before        { content: "\e601"; }
+.icon-email:before       { content: "\e602"; }
+.icon-arrow-up:before    { content: "\e603"; }
+.icon-arrow-right:before { content: "\e604"; }
+.icon-arrow-left:before  { content: "\e605"; }
+.icon-arrow-down:before  { content: "\e606"; }
+.icon-x:before           { content: "\e607"; }
+.icon-menu:before        { content: "\e608"; }
+
+/* Copy values to _base.scss */

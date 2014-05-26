@@ -1,0 +1,98 @@
+/* =Forms
+===================================================== */
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"],
+input[type="date"], input[type="month"], input[type="time"], input[type="week"],
+input[type="number"], input[type="email"], input[type="url"], input[type="search"],
+input[type="tel"], input[type="color"],	textarea, select {
+
+	font-family: $mainfont;
+	@include font-size(16);
+	line-height: 1.25;
+	padding: em(9,16) em(14,16);
+
+	width: 100%;
+	border: 1px solid #ddd;
+	border-color: darken(#eee, 10%) darken(#eee, 15%) darken(#eee, 20%) darken(#eee, 15%);
+	background-color: #fff;
+	box-shadow: 0 0 .25em 0 rgba(0,0,0,.1);
+
+	@include transition(all .2s ease);
+
+	-webkit-appearance: none; // removes styling on iOS devices and other WebKit browsers
+
+	/* Focus styles */
+	&:focus {
+
+		color: #222;
+		border-color: #aaa;
+		box-shadow: 0 0 .25em 0 rgba(0,0,0,.4);
+		outline: none;
+
+	}
+
+	/*	Hover styles */
+	&:hover {
+
+		border-color: #aaa;
+
+	}
+
+}
+
+textarea {
+	resize: vertical;
+	height: 12.5em;
+	display: block;
+}
+select {
+	/* Code for custom arrow on the select box */
+	// background: url(assets/images/arrow-right.png) no-repeat 100% 50% ;
+	// padding-right: 50px!important;
+	// /* https://gist.github.com/joaocunha/6273016 */
+	// text-indent: 0.01px;
+	// text-overflow: '';
+}
+
+.field-container {
+
+	/* Error styles */
+	.error {
+		input[type="text"], input[type="password"], input[type="datetime"],	input[type="datetime-local"],
+		input[type="date"], input[type="month"], input[type="time"], input[type="week"],
+		input[type="number"], input[type="email"], input[type="url"], input[type="search"],
+		input[type="tel"], input[type="color"],	textarea, select {
+
+		}
+	}
+}
+
+fieldset {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.field-container {
+
+	margin-bottom: 1em;
+	&:last-child { margin-bottom: 0; }
+
+	&.label-hide {
+		.field > label { @include visually-hidden; }
+	}
+}
+
+.field {
+	margin-bottom: em(10,14);
+	&:last-child { margin-bottom: 0; }
+}
+
+.field {
+	label {
+		display: block;
+		color: #888;
+		@include font-size(14);
+		margin-bottom: em(10,14);
+	}
+}
