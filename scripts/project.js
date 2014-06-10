@@ -78,10 +78,6 @@ $( document ).ready(function() {
 			rowDivs[currentDiv].height(currentTallest);
 		}
 
-		$(window).resize(function() {
-			columnConform();
-		});
-
 	});
 
 	// Keyboard accessible primary nav
@@ -90,6 +86,12 @@ $( document ).ready(function() {
 	}).focusout(
 	function(){
 		$(this).closest('.dropdown').removeClass('is-focused');
+	});
+
+	// Project entry listing, more information
+	$('.project-entry .action-details').on('click', function(e){
+		e.preventDefault();
+		$(this).closest('.project-entry').toggleClass('is-opened');
 	});
 
 });

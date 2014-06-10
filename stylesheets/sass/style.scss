@@ -126,8 +126,9 @@ body {
 
 %style-outset {
 	border: 1px solid $bordercolor;
+	border-color: #eee #ddd #ccc #ddd;
 	background-color: #fff;
-	box-shadow: 0 .125em .125em 0 rgba(0,0,0,.2);
+	box-shadow: 0 em(4,16) em(2,16) rgba(0,0,0,.1);
 }
 
 /* =Import

@@ -98,6 +98,8 @@ $successcolor:     #38b44a; // Green
 $warningcolor:     #ffd400; // Orange
 $dangercolor:      #ee1c24; // Danger
 
+$eucolor:          #171695; // Danger
+
 // Z-index
 $zindex-header: 400;
 $zindex-onheader: 410;
@@ -109,9 +111,11 @@ $auxfont     : 'Source Sans Pro', $helvetica;
 // Font weights
 $light:   300;
 $regular: 400;
-$bold:    700;
+$bold:    600;
 
 // Icons
-$icon-menu       :"\e608";
-$icon-x          :"\e607";
-$icon-arrow-down :"\e606";
+$icon-menu        :"\e608";
+$icon-x           :"\e607";
+$icon-arrow-down  :"\e606";
+$icon-arrow-right :"\e604";
+$icon-arrow-left :"\e605";
