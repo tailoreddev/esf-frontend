@@ -10,6 +10,7 @@
 		position: relative;
 		min-height: 18em;
 		border: em(2,16) solid $brand-color2;
+		box-shadow: 0 0 1em 0 rgba(0,0,0,.1);
 		.no-touch & {
 			&:focus {
 				outline: none;
@@ -27,13 +28,13 @@
 
 		/* Height */
 		@media (min-height: 30em) {
-			min-height: 30em;
+			min-height: 26em;
 		}
 		@media (min-height: 40em) {
-			min-height: 40em;
+			min-height: 36em;
 		}
 		@media (min-height: 50em) {
-			min-height: 50em;
+			min-height: 46em;
 		}
 	}
 
@@ -52,9 +53,12 @@
 
 			background-color: $brand-auxcolor;
 			border-color: darken($brand-auxcolor, 05%) darken($brand-auxcolor, 10%) darken($brand-auxcolor, 15%) darken($brand-auxcolor, 10%);
-			// color: #444;
-			// text-shadow: none;
-			// border-color: #eee #ddd #ccc #ddd;
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: darken($brand-auxcolor, 20%);
+				border-color: darken($brand-auxcolor, 25%) darken($brand-auxcolor, 30%) darken($brand-auxcolor, 35%) darken($brand-auxcolor, 30%);
+			}
 		}
 		.visually-hidden {
 			@include visually-hidden;
@@ -119,14 +123,17 @@
 	&.wide {
 
 		.control-pan {
-			top: em(20,16);
+			top: em(30,16);
+			left: em(30,16);
 			display: block;
 		}
 		.control-zoom {
-			bottom: em(20,16);
+			bottom: em(30,16);
+			left: em(30,16);
 		}
 		.control-marker {
-			bottom: em(20,16);
+			bottom: em(30,16);
+			right: em(30,16);
 		}
 
 		.control-pan .map-button {
@@ -136,50 +143,66 @@
 		.control-zoom .map-button {
 			@include font-size(32);
 		}
+
+		/* Center the controls based on container */
+		@include breakpoint(large) {
+			.control-pan,
+			.control-zoom,
+			.control-marker {
+				width: 67.5em; // -2.5em * 2 left/right padding of the container
+				left: 50%;
+				margin-left: -(67.5em/2);
+			}
+		}
+
 	}
 
 	/* Map popup */
+	.gm-style {
+		img { max-width: none }
+	}
 	.gm-style .popup-info,
 	.popup-info {
 		position: relative;
 		max-width: 16em;
 	}
-	.gm-style .popup-info h3,
-	.popup-info h3 {
-		font-family: $mainfont;
-		@include font-size(18);
-		font-weight: $bold;
-		margin: 0 0 em(4,18) 0;
-		padding: 0;
-	}
-	.gm-style .popup-info ul,
-	.popup-info ul {
-		list-style: none;
-		margin: 0;
-		clear: both;
-	}
-	.gm-style .popup-info li,
-	.popup-info li {
-		font-family: $mainfont;
-		@include font-size(14);
-		line-height: 1.4;
-		font-weight: $regular;
-		color: #444;
-		margin-top: em(4,14);
-	}
-	.gm-style .popup-info li span,
-	.popup-info li span {
-		font-family: $mainfont;
-	}
-	.gm-style .popup-info a,
-	.popup-info a {
-		color: $linkcolor;
-		text-decoration: none;
-		&:hover,
-		&:focus {
-			text-decoration: underline;
+
+	.popup-info {
+		position: relative;
+		max-width: 16em;
+		h3 {
+			font-family: $mainfont;
+			@include font-size(18);
+			font-weight: $bold;
+			margin: 0 0 em(4,18) 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			clear: both;
+		}
+		li {
+			font-family: $mainfont;
+			@include font-size(14);
+			line-height: 1.4;
+			font-weight: $regular;
+			color: #444;
+			margin-top: em(4,14);
+		}
+		span {
+			font-family: $mainfont;
+		}
+		a {
+			color: $linkcolor;
+			text-decoration: none;
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
 		}
 	}
+
 }
 
 @font-face {

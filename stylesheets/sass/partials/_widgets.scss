@@ -271,95 +271,6 @@
 	}
 }
 
-/* Project full */
-.project-full {
-
-	.column {
-		margin-bottom: 2em;
-		&:first-child {
-			margin-top: 0;
-		}
-
-		@include breakpoint(medium) {
-			&.project-meta {
-				float: left;
-				width: 48%;
-			}
-			&.project-host {
-				float: left;
-				width: 48%;
-				margin-left: 4%;
-			}
-			&.project-summary {
-				clear: both;
-			}
-		}
-
-		@include breakpoint(medium-large) {
-			// &.project-meta,
-			// &.project-host,
-			// &.project-summary {
-			// 	float: left;
-			// 	width: 32%;
-			// 	margin-left: 2%;
-			// 	clear: none;
-			// 	margin-bottom: 0;
-			// }
-			// &.project-meta {
-			// 	margin-left: 0;
-			// }
-		}
-
-	}
-
-	h2 {
-		@extend .heading-alt;
-	}
-
-	.meta {
-		@include font-size(16);
-		margin-top: em(10,16);
-		.title {
-			color: #888;
-		}
-		.value {
-			display: block;
-			color: #222;
-		}
-		.value {
-			display: block;
-			color: #222;
-			.tag {
-				color: #222;
-				font-weight: $regular;
-				background-color: #eee;
-				@include font-size(16);
-				display: inline-block;
-				padding: 0 .25em;
-				margin-left: .25em;
-			}
-		}
-		.group {
-			margin-top: em(10,16);
-			&:first-child { margin-top: 0; }
-		}
-		.value-eu {
-			.value { color: $eucolor; }
-			.tag {
-				color: $eucolor;
-				background-color: mix($eucolor, #fff, 10%);
-			}
-		}
-		@include breakpoint(small-medium) {
-			@include font-size(18);
-			.group {
-				margin-top: em(10,18);
-			}
-		}
-	}
-
-}
-
 /* Project listing */
 .project-listing {
 
@@ -575,6 +486,7 @@
 	}
 
 	/* Tender states */
+	&.post-tender {}
 	&.state-opened {
 		.tag {
 			color: #fff;
@@ -584,10 +496,84 @@
 	}
 	&.state-finished {}
 
+	/* Project full */
+	&.post-project {
+
+		.meta-content {
+			// border-top: 1px solid $bordercolor;
+			// padding-top: em(20,18);
+			margin-top: em(30,16);
+			&:first-child {
+				margin-top: 0;
+			}
+			h2 {
+				@include font-size(18);
+				margin-bottom: em(10,18);
+				margin-top: 0;
+				text-transform: uppercase;
+			}
+			@include breakpoint(medium) {
+				float: left;
+				width: 48%;
+				margin-left: 4%;
+				&.first {
+					margin-left: 0;
+					clear: both;
+				}
+			}
+		}
+		.meta {
+			@include font-size(16);
+			margin-top: em(10,16);
+			margin-bottom: 0;
+			text-transform: none;
+			.title {
+				color: #888;
+			}
+			.value {
+				display: block;
+				color: #222;
+			}
+			.value {
+				display: block;
+				color: #222;
+				.tag {
+					color: #222;
+					font-weight: $regular;
+					background-color: #eee;
+					@include font-size(16);
+					display: inline-block;
+					padding: 0 .25em;
+					margin-left: .25em;
+				}
+			}
+			.group {
+				margin-top: em(10,16);
+				&:first-child { margin-top: 0; }
+			}
+			.value-eu {
+				.value { color: $eucolor; }
+				.tag {
+					color: $eucolor;
+					background-color: mix($eucolor, #fff, 10%);
+				}
+			}
+			@include breakpoint(small-medium) {
+				@include font-size(18);
+				.group {
+					margin-top: em(10,18);
+				}
+			}
+		}
+
+	}
+
 }
 
 /* Widget: Navigation */
 .widget-navigation {
+
+	h2 { @extend .heading-alt; }
 
 	position: relative;
 	float: left;
@@ -806,48 +792,65 @@
 	/* Project nav */
 	.project-nav {
 
-		@include breakpoint(small-medium) {
-			border: none;
-			li {
+		.full-width & {
+
+			@include breakpoint(small-medium) {
 				border: none;
-				margin-top: em(4,16);
-				&:first-child { margin-top: 0; }
-			}
-			a {
-				border: 1px solid $bordercolor;
-			}
-		}
-		@include breakpoint(medium) {
-			li {
-				float: left;
-				width: 49%;
-				margin: 0 0 2% 2%;
-				&:nth-child(2n+1) {
-					margin-left: 0;
-					clear: both;
+				li {
+					border: none;
+					margin-top: em(4,16);
+					&:first-child { margin-top: 0; }
+				}
+				a {
+					// border: 1px solid $bordercolor;
+					// border: 1px solid transparent;
+					&:hover,
+					&:focus {
+						background-color: $linkcolor;
+						color: #fff;
+						.value {
+							color: #fff;
+							border-color: rgba(255,255,255,.6);
+						}
+						// border-color: darken($bordercolor, 20%);
+					}
 				}
 			}
-		}
-		@include breakpoint(large) {
-			li {
-				width: 32%;
-				&:nth-child(2n+1) {
-					margin-left: 2%;
-					clear: none;
-				}
-				&:nth-child(3n+1) {
-					margin-left: 0;
-					clear: both;
+			@include breakpoint(medium) {
+				li {
+					float: left;
+					width: 49%;
+					margin: 0 0 2% 2%;
+					&:nth-child(2n+1) {
+						margin-left: 0;
+						clear: both;
+					}
 				}
 			}
+			@include breakpoint(large) {
+				li {
+					width: 33%;
+					margin-left: .5%;
+					margin-bottom: .5%;
+					&:nth-child(2n+1) {
+						margin-left: .5%;
+						clear: none;
+					}
+					&:nth-child(3n+1) {
+						margin-left: 0;
+						clear: both;
+					}
+				}
+			}
+
 		}
+
 	}
 
 }
 
 /* =Other
 ===================================================== */
-
 
 /* Pagination */
 .pagination {
