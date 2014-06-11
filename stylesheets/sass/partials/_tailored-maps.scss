@@ -1,0 +1,209 @@
+/* =Tailored maps
+===================================================== */
+
+
+.accessible-maps {
+	position: relative;
+
+	/* Inner container */
+	.tailored-maps {
+		position: relative;
+		min-height: 18em;
+		border: em(2,16) solid $brand-color2;
+		.no-touch & {
+			&:focus {
+				outline: none;
+				border-color: $brand-auxcolor;
+				box-shadow: 0 0 1em 0 $brand-auxcolor;
+			}
+		}
+
+		@include breakpoint(medium-large) {
+			border-left: none;
+			border-right: none;
+			border-top: em(10,16) solid $brand-color2;
+			border-bottom: em(10,16) solid $brand-color2;
+		}
+
+		/* Height */
+		@media (min-height: 30em) {
+			min-height: 30em;
+		}
+		@media (min-height: 40em) {
+			min-height: 40em;
+		}
+		@media (min-height: 50em) {
+			min-height: 50em;
+		}
+	}
+
+	/* Map controls */
+	.map-controls {
+		.map-button {
+			position: absolute;
+			display: block;
+			@include font-size(32);
+			line-height: 1;
+			padding: em(3,32);
+			margin: 0;
+			width: em(40,32);
+			height: em(40,32);
+			border-radius: em(4,32);
+
+			background-color: $brand-auxcolor;
+			border-color: darken($brand-auxcolor, 05%) darken($brand-auxcolor, 10%) darken($brand-auxcolor, 15%) darken($brand-auxcolor, 10%);
+			// color: #444;
+			// text-shadow: none;
+			// border-color: #eee #ddd #ccc #ddd;
+		}
+		.visually-hidden {
+			@include visually-hidden;
+		}
+		.zoom-in {
+			left: 0; bottom: 0;
+		}
+		.zoom-out {
+			left: em(45,32); bottom: 0;
+		}
+		.next-marker {
+			right: 0;
+			bottom: 0;
+		}
+		.prev-marker {
+			right: em(45,32);
+			bottom: 0;
+		}
+		.pan-up {
+			left: em(45,32);
+			top: 0;
+		}
+		.pan-left {
+			left: 0;
+			top: em(45,32);
+		}
+		.pan-right {
+			left: em(90,32);
+			top: em(45,32);
+		}
+		.pan-bottom {
+			left: em(45,32);
+			top: em(90,32);
+		}
+		.center {
+			left: em(45,32);
+			top: em(45,32);
+		}
+
+		/* Map buttons group */
+		.control-pan,
+		.control-zoom,
+		.control-marker {
+			position: absolute;
+		}
+		.control-pan {
+			display: none;
+			top: .5em;
+			left: .5em;
+		}
+		.control-zoom {
+			bottom: em(10,16);
+			left: em(10,16);
+		}
+		.control-marker {
+			bottom: em(10,16);
+			right: em(10,16);
+		}
+	}
+
+	/* Map width */
+	&.wide {
+
+		.control-pan {
+			top: em(20,16);
+			display: block;
+		}
+		.control-zoom {
+			bottom: em(20,16);
+		}
+		.control-marker {
+			bottom: em(20,16);
+		}
+
+		.control-pan .map-button {
+			@include font-size(24);
+		}
+		.control-marker .map-button,
+		.control-zoom .map-button {
+			@include font-size(32);
+		}
+	}
+
+	/* Map popup */
+	.gm-style .popup-info,
+	.popup-info {
+		position: relative;
+		max-width: 16em;
+	}
+	.gm-style .popup-info h3,
+	.popup-info h3 {
+		font-family: $mainfont;
+		@include font-size(18);
+		font-weight: $bold;
+		margin: 0 0 em(4,18) 0;
+		padding: 0;
+	}
+	.gm-style .popup-info ul,
+	.popup-info ul {
+		list-style: none;
+		margin: 0;
+		clear: both;
+	}
+	.gm-style .popup-info li,
+	.popup-info li {
+		font-family: $mainfont;
+		@include font-size(14);
+		line-height: 1.4;
+		font-weight: $regular;
+		color: #444;
+		margin-top: em(4,14);
+	}
+	.gm-style .popup-info li span,
+	.popup-info li span {
+		font-family: $mainfont;
+	}
+	.gm-style .popup-info a,
+	.popup-info a {
+		color: $linkcolor;
+		text-decoration: none;
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}
+
+@font-face {
+	font-family: 'tailoredmaps';
+	src: url('../../assets/fonts/tailoredmaps.eot');
+	src: url('../../assets/fonts/tailoredmaps.eot?#iefix') format('embedded-opentype'),
+		 url('../../assets/fonts/tailoredmaps.ttf') format('truetype'),
+		 url('../../assets/fonts/tailoredmaps.woff') format('woff'),
+		 url('../../assets/fonts/tailoredmaps.svg#tailoredmaps') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="tm-icon"],
+[class*=" tm-icon"] {
+	@include icon-font('tailoredmaps');
+}
+.tm-icon-arrow-down:before  { content: "\e600"; }
+.tm-icon-arrow-left:before  { content: "\e601"; }
+.tm-icon-arrow-right:before { content: "\e602"; }
+.tm-icon-arrow-up:before    { content: "\e603"; }
+.tm-icon-center:before      { content: "\e604"; }
+.tm-icon-next-pin:before    { content: "\e605"; }
+.tm-icon-pin:before         { content: "\e606"; }
+.tm-icon-prev-pin:before    { content: "\e607"; }
+.tm-icon-zoom-out:before    { content: "\e608"; }
+.tm-icon-zoom-in:before     { content: "\e609"; }

@@ -144,6 +144,7 @@ body {
 @import 'partials/section-main';
 @import 'partials/section-hero';
 @import 'partials/widgets';
+@import 'partials/tailored-maps';
 @import 'partials/styleguide';
 
 /* =Layout
@@ -380,7 +381,7 @@ img {
 
 [class^="icon-"],
 [class*=" icon-"] {
-	@include icon-font;
+	@include icon-font('esf');
 }
 
 .icon-tailored:before    { content: "\e600"; }

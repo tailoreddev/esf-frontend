@@ -34,8 +34,8 @@
 }
 
 // Icon font
-@mixin icon-font {
-	font-family: 'esf';
+@mixin icon-font($fontName) {
+	font-family: $fontName;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;

@@ -159,7 +159,7 @@
 		.dropdown {
 			position: relative;
 			> a:after {
-				@include icon-font;
+				@include icon-font('esf');
 				content: $icon-arrow-down;
 				margin-left: .5em;
 				color: rgba(255,255,255,.9);
