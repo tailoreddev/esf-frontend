@@ -9,15 +9,31 @@
 
 }
 
+.hero-content {
+	@extend %container-pull-top;
+	@extend %container-pull-bottom;
+	@extend %container-pull-side;
+
+	@include breakpoint(medium) {
+		margin: 0;
+	}
+
+	@include breakpoint(x-large) {
+		margin-left: -7em;
+		margin-right: -7em;
+	}
+
+}
+
 .card {
 
 	position: relative;
-	padding: 1.5em 1.5em 1.5em 2em;
-	margin-bottom: 1em;
-	border: 1px solid $bordercolor;
 	background-color: #fff;
-	@include background-image(linear-gradient(transparent, rgba(0,0,0,.05)));
-	box-shadow: 0 .125em .75em 0 rgba(0,0,0,.1);
+	// @include background-image(linear-gradient(transparent, rgba(0,0,0,.05)));
+
+	border-top: 1px solid $bordercolor;
+
+	padding: 1em 1em 1em 1.5em;
 
 	&:last-child { margin-bottom: 0; }
 
@@ -26,54 +42,28 @@
 	&.color-3 .detail { background-color: $brand-section3; }
 	&.color-4 .detail { background-color: $brand-section4; }
 
-	.detail {
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		width: .5em;
+	@include breakpoint(small) {
+		padding: 1.5em 1.5em 1.5em 2em;
 	}
-
-	.title {
-		a {
-			color: #222;
-			&:hover,
-			&:focus {
-				color: $linkcolor;
-			}
-		}
+	@include breakpoint(small-medium) {
+		padding: 2em 2em 2em 2.5em;
 	}
-	.summary {
-		p {
-			color: #888;
-			margin-bottom: 0;
-			@include font-size(16);
-		}
-	}
-
-	.action {
-		@include clearfix;
-	}
-	.button {
-		float: left;
-		margin-top: em(16,14);
-		margin-right: em(10,14);
-	}
-
-	@include breakpoint(medium) {
+	@include breakpoint(medium) {}
+	@include breakpoint(medium-large) {
 
 		padding: 2em;
+		min-height: 20em;
 		float: left;
-		width: percentage(450/940);
-		margin-left: percentage(40/940);
-		margin-bottom: percentage(40/940);
-
-		.detail { width: 1em; }
-		.summary p { @include font-size(18); }
+		width: percentage(460/940);
+		margin-left: percentage(20/940);
+		margin-bottom: percentage(20/940);
+		border: 1px solid $bordercolor;
+		box-shadow: 0 em(2,16) em(8,16) 0 rgba(0,0,0,.05);
 
 		/* Border on the left */
 		&.card-1,
 		&.card-3 {
+			clear: both;
 			padding-left: 2.75em;
 		}
 
@@ -96,15 +86,8 @@
 
 	}
 
-}
-
-@include breakpoint(x-large) {
-	/* Pull left/right */
-	.hero-content {
-		margin-left: -7em;
-		margin-right: -7em;
-	}
-	.card {
+	@include breakpoint(x-large) {
+		min-height: 19em;
 		&.card-1,
 		&.card-3 {
 			padding: 3em 3em 3em 7em;
@@ -114,4 +97,91 @@
 			padding: 3em 7em 3em 3em;
 		}
 	}
+
+	/* Card color stroke */
+	.detail {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: .5em;
+		@include breakpoint(medium) {
+			width: 1em;
+		}
+	}
+
+	/* Card title */
+	.title {
+		@include font-size(20);
+		margin-bottom: em(10,20);
+		a {
+			color: #222;
+			&:hover,
+			&:focus {
+				color: $linkcolor;
+			}
+		}
+		@include breakpoint(small) {
+			@include font-size(22);
+			margin-bottom: em(10,22);
+		}
+		@include breakpoint(small-medium) {
+			@include font-size(24);
+			margin-bottom: em(10,24);
+		}
+		@include breakpoint(medium) {
+			@include font-size(28);
+			margin-bottom: em(10,28);
+		}
+	}
+
+	/* Card summary */
+	.summary {
+		margin-bottom: em(8,16);
+		p {
+			color: #888;
+			margin-bottom: 0;
+			@include font-size(16);
+			@include breakpoint(medium-large) {
+				@include font-size(18);
+			}
+		}
+	}
+
+	/* Card action/buttons */
+	.action {
+		@include clearfix;
+	}
+	.button {
+		float: left;
+		margin-top: em(4,14);
+		margin-right: em(10,14);
+	}
+
+	@include breakpoint(medium) {
+
+
+
+	}
+
+}
+
+@include breakpoint(x-large) {
+
+	/* Pull left/right */
+	// .hero-content {
+	// 	margin-left: -7em;
+	// 	margin-right: -7em;
+	// }
+
+	// .card {
+	// 	&.card-1,
+	// 	&.card-3 {
+	// 		padding: 3em 3em 3em 7em;
+	// 	}
+	// 	&.card-2,
+	// 	&.card-4 {
+	// 		padding: 3em 7em 3em 3em;
+	// 	}
+	// }
 }

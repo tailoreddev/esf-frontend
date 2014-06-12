@@ -22,8 +22,8 @@
 		@include breakpoint(medium-large) {
 			border-left: none;
 			border-right: none;
-			border-top: em(10,16) solid $brand-color2;
-			border-bottom: em(10,16) solid $brand-color2;
+			border-top: em(10,16) solid #fff;
+			border-bottom: em(10,16) solid #fff;
 		}
 
 		/* Height */

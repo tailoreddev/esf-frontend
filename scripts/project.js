@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+jQuery(document).ready(function($) {
 
 	// http://blog.bignerdranch.com/4455-web-accessibility-skip-navigation-links/
 	// bind a click event to the 'skip' link
@@ -92,6 +92,20 @@ $( document ).ready(function() {
 	$('.project-entry .action-details').on('click', function(e){
 		e.preventDefault();
 		$(this).closest('.project-entry').toggleClass('is-opened');
+	});
+
+	// Smooth scroll
+	$(".smooth-scroll").click(function(event){
+		event.preventDefault();
+		//calculate destination place
+		var dest=0;
+		if($(this.hash).offset().top > $(document).height()-$(window).height()){
+			 dest=$(document).height()-$(window).height();
+		}else{
+			 dest=$(this.hash).offset().top;
+		}
+		//go to destination
+		$('html,body').animate({scrollTop:dest}, 1000,'swing');
 	});
 
 });

@@ -47,7 +47,6 @@
 		.container
 			.main-content
 			.secondary-content
-		.container
 	.section-footer
 		.container
 
@@ -120,8 +119,8 @@ body {
 }
 
 %island-padding {
-	padding: 1.5em;
-	@include breakpoint(small)        { padding: 2em; }
+	padding: em(20,16);
+	@include breakpoint(small) { padding: em(28,16); }
 }
 
 %style-outset {
@@ -129,6 +128,13 @@ body {
 	border-color: #eee #ddd #ccc #ddd;
 	background-color: #fff;
 	box-shadow: 0 em(4,16) em(2,16) rgba(0,0,0,.1);
+}
+
+%style-inset {
+	border: 1px solid $bordercolor;
+	border-color: #e5e5e5;
+	background-color: #f9f9f9;
+	box-shadow: inset 0 0 1em 0 rgba(0,0,0,.05);
 }
 
 /* =Import

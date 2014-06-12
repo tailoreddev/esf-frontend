@@ -48,7 +48,8 @@
 		padding-left: em(40,14);
 	}
 
-	.is-active > a {
+	.is-active > a,
+	.current-menu-item > a {
 		color: #fff;
 		background-color: rgba(0,0,0,.5);
 	}
@@ -109,7 +110,10 @@
 				}
 			}
 
-			.is-active > a {
+			.is-active > a,
+			.current-menu-item > a,
+			.current-menu-ancestor > a,
+			.current-menu-parent > a {
 				color: #fff;
 				background-color: mix($brand-auxcolor, #000, 70%);
 				&:hover,
@@ -148,7 +152,8 @@
 				}
 			}
 
-			.is-active > a {
+			.is-active > a,
+			.current-menu-item > a {
 				color: #fff;
 				background-color: rgba(0,0,0,.2);
 			}
@@ -200,6 +205,19 @@
 				min-height: inherit;
 				padding: .625em 1em;
 			}
+			.is-active > a,
+			.current-menu-item > a,
+			.current-tender-ancestor > a,
+			.current-tender-parent > a {
+				color: #fff;
+				background-color: #000;
+				&:active,
+				&:focus {
+					color: #fff;
+					background-color: #000;
+				}
+			}
+
 		}
 
 		@include breakpoint(medium-large) {

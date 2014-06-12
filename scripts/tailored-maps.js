@@ -30,7 +30,8 @@ jQuery( document ).ready(function($) {
 				$controlsZoomIn = $(Element).next().find('button.zoom-in'),
 				$controlsZoomOut = $(Element).next().find('button.zoom-out'),
 				$controlsNext = $(Element).next().find('button.next-marker');
-				$controlsPrev = $(Element).next().find('button.prev-marker');
+				$controlsPrev = $(Element).next().find('button.prev-marker'),
+				styles = [{"featureType":"administrative.country","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"water","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"administrative.locality","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#5fb4e8"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#e6eaed"}]},{"featureType":"administrative.country","elementType":"geometry.stroke","stylers":[{"invert_lightness":false},{"color":"#a3adb3"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#ffffff"}]}];
 
 			$controlsUp.click(function(e){
 				e.preventDefault();
@@ -96,12 +97,17 @@ jQuery( document ).ready(function($) {
 
 			marker_array = [];
 
+			// Style
+			var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
+
 			// Create the map
 			map = new google.maps.Map(Element, {
 				disableDefaultUI: true,
 				disableDoubleClickZoom: true,
 				scrollwheel: false,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
+				mapTypeControlOptions: {
+					mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+				}
 			});
 
 			var infowindow = new google.maps.InfoWindow();
@@ -129,6 +135,10 @@ jQuery( document ).ready(function($) {
 
 			// Center the map
 			map.setCenter(bounds.getCenter());
+
+			// Set style
+			map.mapTypes.set('map_style', styledMap);
+			map.setMapTypeId('map_style');
 
 			// Set the zoom level so that all markers fit in the map
 			map.fitBounds(bounds);

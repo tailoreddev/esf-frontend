@@ -90,7 +90,12 @@
 	}
 }
 
-.style-outline {
+.style-outset {
 	@extend %island-padding;
 	@extend %style-outset;
+}
+
+.style-inset {
+	@extend %island-padding;
+	@extend %style-inset;
 }

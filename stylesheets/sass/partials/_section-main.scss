@@ -3,6 +3,7 @@
 
 .section-main {
 
+	clear: both;
 	overflow: hidden;
 	background-color: #fff;
 
@@ -26,19 +27,54 @@
 		margin-right: -100%;
 		background-color: #eee;
 		background-color: rgba(0,0,0,.05);
-		// @include background-image(linear-gradient(to top, rgba(255,255,255,.5), transparent));
-		// box-shadow: inset 0 -.5em 2em 0 rgba(0,0,0,.05);
+		border-top: em(10,16) solid rgba(0,0,0,.1);
+		@include background-image(linear-gradient(to top, transparent, rgba(0,0,0,.05)));
+
 		.page-title { margin-bottom: 0; }
+		.summary {
+			margin-top: em(10,16);
+			p {
+				@include font-size(16);
+				margin-bottom: 0;
+			}
+			@include breakpoint(small) {
+				p { @include font-size(18); }
+			}
+			@include breakpoint(small-medium) {
+				p { @include font-size(20); }
+			}
+			@include breakpoint(medium) {
+				p { @include font-size(22); }
+			}
+		}
 
 		.home & {
-			background-color: transparent;
 			width: auto;
 			padding-left: 0;
 			padding-right: 0;
 			margin-left: 0;
 			margin-right: 0;
 			margin-bottom: 0;
+			border-top: none;
+			background: none;
 		}
+
+		&[class*="color-"] {
+			border-top: em(10,16) solid rgba(0,0,0,.25);
+			@include background-image(linear-gradient(to top, transparent, rgba(0,0,0,.15)));
+			.page-title {
+				color: #fff;
+				text-shadow: 0 1px 1px rgba(0,0,0,.5);
+			}
+			.summary p {
+				color: #fff;
+				text-shadow: 0 1px 1px rgba(0,0,0,.5);
+			}
+		}
+		&.color-1 { background-color: $brand-section1; }
+		&.color-2 { background-color: $brand-section2; }
+		&.color-3 { background-color: $brand-section3; }
+		&.color-4 { background-color: $brand-section4; }
 
 	}
 

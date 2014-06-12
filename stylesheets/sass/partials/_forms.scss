@@ -81,18 +81,19 @@ fieldset {
 	&.label-hide {
 		.field > label { @include visually-hidden; }
 	}
-}
 
-.field {
-	margin-bottom: em(10,14);
-	&:last-child { margin-bottom: 0; }
-}
+	/* Fields */
+	.field {
 
-.field {
-	label {
-		display: block;
-		color: #888;
-		@include font-size(14);
 		margin-bottom: em(10,14);
+		&:last-child { margin-bottom: 0; }
+
+		label {
+			display: block;
+			color: #888;
+			@include font-size(14);
+			margin-bottom: em(10,14);
+		}
 	}
+
 }
