@@ -13,6 +13,7 @@ input[type="tel"], input[type="color"],	textarea, select {
 
 	width: 100%;
 	border: 1px solid #ddd;
+	border-radius: 0;
 	border-color: darken(#eee, 10%) darken(#eee, 15%) darken(#eee, 20%) darken(#eee, 15%);
 	background-color: #fff;
 	box-shadow: 0 0 .25em 0 rgba(0,0,0,.1);
@@ -23,19 +24,27 @@ input[type="tel"], input[type="color"],	textarea, select {
 
 	/* Focus styles */
 	&:focus {
-
 		color: #222;
-		border-color: #aaa;
+		border-color: $brand-auxcolor;
 		box-shadow: 0 0 .25em 0 rgba(0,0,0,.4);
 		outline: none;
-
 	}
 
 	/*	Hover styles */
 	&:hover {
+		// border-color: #aaa;
+		border-color: $brand-auxcolor;
+	}
 
-		border-color: #aaa;
+	&:disabled {
+		color: #444;
+		border-color: #ddd;
+		background-color: #f9f9f9;
+	}
 
+	/* Error styles */
+	.field-container .error & {
+		border-color: $dangercolor;
 	}
 
 }
@@ -46,38 +55,62 @@ textarea {
 	display: block;
 }
 select {
+	cursor: pointer;
+	line-height: 1.25;
+
 	/* Code for custom arrow on the select box */
-	// background: url(assets/images/arrow-right.png) no-repeat 100% 50% ;
-	// padding-right: 50px!important;
-	// /* https://gist.github.com/joaocunha/6273016 */
-	// text-indent: 0.01px;
-	// text-overflow: '';
-}
+	background: #fff url(../../assets/images/form-select.png) no-repeat 100% 50% ;
+	border-color: darken(#eee, 10%) darken(#eee, 15%) darken(#eee, 20%) darken(#eee, 15%);
+	padding-right: em(40,16)!important;
+	/* https://gist.github.com/joaocunha/6273016 */
+	text-indent: 0.01px;
+	text-overflow: '';
+	&:hover,
+	&:focus {
+		border-color: $brand-auxcolor;
+		box-shadow: 0 .05em .25em 0 transparentize($brand-auxcolor, .2);
+	}
 
-.field-container {
-
-	/* Error styles */
-	.error {
-		input[type="text"], input[type="password"], input[type="datetime"],	input[type="datetime-local"],
-		input[type="date"], input[type="month"], input[type="time"], input[type="week"],
-		input[type="number"], input[type="email"], input[type="url"], input[type="search"],
-		input[type="tel"], input[type="color"],	textarea, select {
-
-		}
+	&.inline {
+		display: inline-block;
+		width: auto;
+		margin-top: .25em;
 	}
 }
 
+/* Fieldset */
 fieldset {
 	border: 0;
 	padding: 0;
 	margin: 0;
+	margin-top: em(20,16);
+	&:first-child { margin-top: 0; }
 }
 
+/* Field container */
 .field-container {
 
-	margin-bottom: 1em;
+	margin-bottom: em(30,16);
 	&:last-child { margin-bottom: 0; }
 
+	/* Label left */
+	&.label-left {
+		@include breakpoint(small-medium) {
+			.field > label {
+				padding: em(10,16) 0;
+				margin-bottom: 0;
+				float: left;
+				width: 26%;
+			}
+			.group,
+			.action {
+				float: right;
+				width: 70%;
+			}
+		}
+	}
+
+	/* Label hide */
 	&.label-hide {
 		.field > label { @include visually-hidden; }
 	}
@@ -85,15 +118,118 @@ fieldset {
 	/* Fields */
 	.field {
 
-		margin-bottom: em(10,14);
+		margin-bottom: em(20,16);
+		clear: both;
+		@include clearfix;
 		&:last-child { margin-bottom: 0; }
+		.widget-signup & { margin-bottom: em(10,16); }
 
-		label {
+		> label {
 			display: block;
-			color: #888;
-			@include font-size(14);
-			margin-bottom: em(10,14);
+			color: #444;
+			@include font-size(16);
+			line-height: em(20,16);
+			font-weight: $bold;
+			margin-bottom: em(10,16);
 		}
+
+		&.required > label:after {
+			content: "*";
+			margin-left: .125em;
+			color: $dangercolor;
+		}
+
+		.group {
+			p {
+				@include font-size(14);
+				margin-bottom: 0;
+				margin-top: em(5,14);
+				color: #888;
+			}
+		}
+
+		/* Columns */
+		&.column {
+			@include breakpoint(small-medium) {
+				float: left;
+				width: 48%;
+				margin-left: 4%;
+				clear: none;
+			}
+		}
+		&.first {
+			@include breakpoint(small-medium) {
+				margin-left: 0;
+				clear: both;
+			}
+		}
+
+		/* File */
+		&.type-file {
+			.button {
+				vertical-align: top;
+				margin-right: .5em;
+			}
+			.input-filename {
+				vertical-align: top;
+				display: inline-block;
+				width: auto;
+				max-widt: 100%;
+				height: em(30,12);
+				@include font-size(12);
+			}
+		}
+
+		/* Radio & Checkbox */
+		&.type-radio,
+		&.type-checkbox {
+			.group > label {
+				cursor: pointer;
+				display: block;
+				color: #666;
+				@include font-size(16);
+				padding: .25em .25em .25em 1.5em;
+				margin-bottom: em(5,16);
+				position: relative;
+				&:last-child { margin-bottom: 0; }
+			}
+			p {
+				margin-top: 0;
+			}
+			small {
+				color: #888;
+				display: block;
+			}
+			input[type="checkbox"],
+			input[type="radio"] {
+				position: absolute;
+				top: .5em;
+				left: 0;
+			}
+
+			&.inline {
+				.group > label {
+					display: inline-block;
+					margin-right: 1em;
+					margin-bottom: 0;
+				}
+			}
+		}
+
+	}
+
+	/* Separate field and field groups */
+	.separator-top {
+		clear: both;
+		padding-top: .75em;
+		border-top: 1px solid $bordercolor;
+		border-color: rgba(0,0,0,.1);
+	}
+	.separator-bottom {
+		clear: both;
+		padding-bottom: .75em;
+		border-bottom: 1px solid $bordercolor;
+		border-color: rgba(0,0,0,.1);
 	}
 
 }

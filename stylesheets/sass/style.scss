@@ -176,7 +176,8 @@ button {
 	text-align: center;
 	text-transform: uppercase;
 	@include font-size(14);
-	line-height: 1.45;
+	// line-height: 1.45;
+	line-height: em(20,14);
 	font-family: $auxfont;
 	font-weight: $bold;
 
@@ -229,7 +230,9 @@ button {
 
 	/* Button small */
 	&.button-small {
-		padding: em(4,16) em(8,16);
+		padding: em(4,14) em(8,14);
+		line-height: em(20,14);
+		height: em(30,14);
 	}
 
 	/* Button large */
@@ -399,5 +402,10 @@ img {
 .icon-arrow-down:before  { content: "\e606"; }
 .icon-x:before           { content: "\e607"; }
 .icon-menu:before        { content: "\e608"; }
+.icon-calendar:before    { content: "\e609"; }
+.icon-lock-alt:before    { content: "\e60a"; }
+.icon-lock:before        { content: "\e60b"; }
+.icon-settings:before    { content: "\e60c"; }
+.icon-user:before        { content: "\e60d"; }
 
 /* Copy values to _base.scss */

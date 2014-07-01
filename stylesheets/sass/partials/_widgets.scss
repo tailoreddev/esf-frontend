@@ -29,7 +29,6 @@
 
 	.home .main-content > & {
 		&.widget-archive:first-child {
-			// margin-top: em(20,16);
 			@include breakpoint(small) { margin-top: em(30,16); }
 		}
 	}
@@ -636,6 +635,15 @@
 
 	}
 
+}
+
+/* Widget: Subscribe */
+.widget-subscribe {
+	/* Override extended background color */
+	.secondary-content & {
+		background-color: #fffcda;
+		border-color: mix(#fffcda, #000, 90%);
+	}
 }
 
 /* Widget: Navigation */

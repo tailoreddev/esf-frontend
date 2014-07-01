@@ -6,6 +6,7 @@
 	<title>Europski socijalni fond — Razvoj ljudskih potencijala</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="favicon.ico" rel="icon" type="image/x-icon" />
 
 	<link rel="stylesheet" href="stylesheets/css/style.css" media="screen">
 	<link rel="stylesheet" href="stylesheets/css/print.css" media="print">
@@ -797,6 +798,365 @@
 					<p>We were unable to verify your account. Please <a href="#">contact administrator</a>!</p>
 				</div>
 				<!-- /Message: Danger -->
+
+			</div>
+		</div>
+
+		<div class="style-group">
+			<h2 class="style-heading">Forms</h2>
+			<div class="style-content">
+
+				<form action="#">
+					<fieldset>
+
+						<div class="field-container">
+							<div class="field first column">
+								<label for="input-text">Input text</label>
+								<div class="group">
+									<input type="text" id="input-text" placeholder="Enter text...">
+									<p>Additional text</p>
+								</div>
+							</div>
+							<div class="field column required">
+								<label for="input-text2">Input text</label>
+								<div class="group">
+									<input type="text" id="input-text2" placeholder="Enter text...">
+									<p>Required field example</p>
+								</div>
+							</div>
+							<div class="field">
+								<label for="input-email">Input email</label>
+								<div class="group">
+									<input type="email" id="input-email" placeholder="Enter email...">
+								</div>
+							</div>
+							<div class="field">
+								<label for="input-email2">Your email</label>
+								<div class="group">
+									<input type="email" id="input-email2" placeholder="lucijan@blagonic.com" disabled>
+								</div>
+							</div>
+							<div class="field required error column first">
+								<label for="input-password">Input password</label>
+								<div class="group">
+									<input type="password" id="input-password" placeholder="Enter password...">
+								</div>
+							</div>
+							<div class="field required error column">
+								<label for="input-password">Input password</label>
+								<div class="group">
+									<input type="password" id="input-password" placeholder="Enter password...">
+									<p>The password doesnt match.</p>
+								</div>
+							</div>
+							<div class="field type-checkbox">
+								<label for="input-checkbox">Checkbox</label>
+								<div class="group">
+									<label class="checkbox">
+										I agree to terms of use.
+										<input type="checkbox">
+									</label>
+									<label class="checkbox">
+										I want sign up for a newsletter.
+										<input type="checkbox">
+									</label>
+								</div>
+							</div>
+							<div class="field type-checkbox inline">
+								<label for="input-checkbox">Checkbox (inline)</label>
+								<div class="group">
+									<label class="checkbox">
+										Checkbox 1
+										<input type="checkbox">
+									</label>
+									<label class="checkbox">
+										Checkbox 1
+										<input type="checkbox">
+									</label>
+								</div>
+							</div>
+							<div class="field type-radio">
+								<label for="input-radio">Radio</label>
+								<div class="group">
+									<label class="radio">
+										Option 1
+										<input type="radio" name="group-1">
+									</label>
+									<label class="radio">
+										Option 2
+										<input type="radio" name="group-1">
+									</label>
+									<label class="radio">
+										Option 3
+										<input type="radio" name="group-1">
+									</label>
+									<p>Additional text.</p>
+								</div>
+							</div>
+							<div class="field type-radio inline">
+								<label for="input-radio">Radio (inline)</label>
+								<div class="group">
+									<label class="radio">
+										Male
+										<input type="radio" name="group-2">
+									</label>
+									<label class="radio">
+										Female
+										<input type="radio" name="group-2">
+									</label>
+								</div>
+							</div>
+							<div class="field">
+								<label for="select-option">Select</label>
+								<div class="group">
+									<select id="select-option">
+										<option value="1">Value 1</option>
+										<option value="2">Value 2</option>
+										<option value="3">Value 3</option>
+									</select>
+								</div>
+							</div>
+							<div class="field">
+								<label for="input-age">Date of birth</label>
+								<div class="group">
+									<select id="select-day" class="inline">
+										<option value="Day">Day</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+									<select id="select-month" class="inline">
+										<option value="Month">Month</option>
+										<option value="1 - January">1 - January</option>
+										<option value="2 - February">2 - February</option>
+										<option value="3 - March">3 - March</option>
+										<option value="4 - April">4 - April</option>
+										<option value="5 - May">5 - May</option>
+										<option value="6 - June">6 - June</option>
+										<option value="7 - July">7 - July</option>
+										<option value="8 - August">8 - August</option>
+										<option value="9 - September">9 - September</option>
+										<option value="10 - October">10 - October</option>
+										<option value="11 - November">11 - November</option>
+										<option value="12 - December">12 - December</option>
+									</select>
+									<select id="select-year" class="inline">
+										<option value="Year">Year</option>
+										<option value="1990">1990</option>
+										<option value="1991">1991</option>
+										<option value="1992">1992</option>
+										<option value="1993">1993</option>
+									</select>
+								</div>
+							</div>
+							<div class="field type-file">
+								<label for="upload-link">Dodaj datoteku</label>
+								<div class="group">
+									<script>
+										$(function(){
+											$("#upload-link").on('click', function(e){
+											    e.preventDefault();
+											    $("#upload-input:hidden").trigger('click');
+											});
+											$("#upload-input").on('change', function(e){
+											    e.preventDefault();
+											    $('#upload-filename').attr("placeholder", $(this).val().split('\\').pop());
+											});
+										});
+									</script>
+									<input id="upload-input" type="file" class="visually-hidden" style="display: none;"/>
+									<a href="" id="upload-link" class="button button-invert button-small">Upload file</a>
+									<input id="upload-filename" type="text" placeholder="Choose File" disabled="disabled" class="input-filename" />
+									<p>Napomena uz polje za upload datoteka.</p>
+								</div>
+							</div>
+							<div class="field">
+								<label for="input-textarea">Textarea</label>
+								<div class="group">
+									<textarea id="input-textarea" placeholder="Enter message..."></textarea>
+								</div>
+							</div>
+							<div class="field separator-top separator-bottom">
+								<div class="group">
+									<p>Top and bottom separators. Can be used individually to visually separate groups in a form.</p>
+								</div>
+							</div>
+							<div class="field">
+								<div class="action">
+									<input type="submit" value="Button name" class="button button-action">
+									<button type="button" class="button button-secondary align-right">Cancel</button>
+								</div>
+							</div>
+						</div>
+
+					</fieldset>
+				</form>
+
+			</div>
+		</div>
+
+		<div class="style-group">
+			<h2 class="style-heading">Forms: Left label</h2>
+			<div class="style-content">
+
+				<form action="#">
+					<fieldset>
+
+						<div class="field-container label-left">
+							<div class="field first">
+								<label for="input-text">Input text</label>
+								<div class="group">
+									<input type="text" id="input-text" placeholder="Enter text...">
+									<p>Additional text</p>
+								</div>
+							</div>
+							<div class="field required">
+								<label for="input-text2">Input text</label>
+								<div class="group">
+									<input type="text" id="input-text2" placeholder="Enter text...">
+									<p>Required field example</p>
+								</div>
+							</div>
+							<div class="field">
+								<label for="input-email">Input email</label>
+								<div class="group">
+									<input type="email" id="input-email" placeholder="Enter email...">
+								</div>
+							</div>
+							<div class="field">
+								<label for="input-email2">Your email</label>
+								<div class="group">
+									<input type="email" id="input-email2" placeholder="lucijan@blagonic.com" disabled>
+								</div>
+							</div>
+							<div class="field required error">
+								<label for="input-password">Input password</label>
+								<div class="group">
+									<input type="password" id="input-password" placeholder="Enter password...">
+								</div>
+							</div>
+							<div class="field required error">
+								<label for="input-password">Input password</label>
+								<div class="group">
+									<input type="password" id="input-password" placeholder="Enter password...">
+									<p>The password doesnt match.</p>
+								</div>
+							</div>
+							<div class="field type-checkbox">
+								<label for="input-checkbox">Checkbox</label>
+								<div class="group">
+									<label class="checkbox">
+										I agree to terms of use.
+										<input type="checkbox">
+									</label>
+									<label class="checkbox">
+										I want sign up for a newsletter.
+										<input type="checkbox">
+									</label>
+								</div>
+							</div>
+							<div class="field type-checkbox inline">
+								<label for="input-checkbox">Checkbox (inline)</label>
+								<div class="group">
+									<label class="checkbox">
+										Checkbox 1
+										<input type="checkbox">
+									</label>
+									<label class="checkbox">
+										Checkbox 1
+										<input type="checkbox">
+									</label>
+								</div>
+							</div>
+							<div class="field type-radio">
+								<label for="input-radio">Radio</label>
+								<div class="group">
+									<label class="radio">
+										Option 1
+										<input type="radio" name="group-1">
+									</label>
+									<label class="radio">
+										Option 2
+										<input type="radio" name="group-1">
+									</label>
+									<label class="radio">
+										Option 3
+										<input type="radio" name="group-1">
+									</label>
+									<p>Additional text.</p>
+								</div>
+							</div>
+							<div class="field type-radio inline">
+								<label for="input-radio">Radio (inline)</label>
+								<div class="group">
+									<label class="radio">
+										Male
+										<input type="radio" name="group-2">
+									</label>
+									<label class="radio">
+										Female
+										<input type="radio" name="group-2">
+									</label>
+								</div>
+							</div>
+							<div class="field">
+								<label for="select-option">Select</label>
+								<div class="group">
+									<select id="select-option">
+										<option value="1">Value 1</option>
+										<option value="2">Value 2</option>
+										<option value="3">Value 3</option>
+									</select>
+								</div>
+							</div>
+							<div class="field">
+								<label for="input-age">Date of birth</label>
+								<div class="group">
+									<select id="select-day" class="inline">
+										<option value="Day">Day</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+									<select id="select-month" class="inline">
+										<option value="Month">Month</option>
+										<option value="1 - January">1 - January</option>
+										<option value="2 - February">2 - February</option>
+										<option value="3 - March">3 - March</option>
+										<option value="4 - April">4 - April</option>
+										<option value="5 - May">5 - May</option>
+										<option value="6 - June">6 - June</option>
+										<option value="7 - July">7 - July</option>
+										<option value="8 - August">8 - August</option>
+										<option value="9 - September">9 - September</option>
+										<option value="10 - October">10 - October</option>
+										<option value="11 - November">11 - November</option>
+										<option value="12 - December">12 - December</option>
+									</select>
+									<select id="select-year" class="inline">
+										<option value="Year">Year</option>
+										<option value="1990">1990</option>
+										<option value="1991">1991</option>
+										<option value="1992">1992</option>
+										<option value="1993">1993</option>
+									</select>
+								</div>
+							</div>
+							<div class="field">
+								<label for="input-textarea">Textarea</label>
+								<div class="group">
+									<textarea id="input-textarea" placeholder="Enter message..."></textarea>
+								</div>
+							</div>
+							<div class="field">
+								<div class="action">
+									<input type="submit" value="Button name" class="button button-action">
+								</div>
+							</div>
+						</div>
+
+					</fieldset>
+				</form>
 
 			</div>
 		</div>

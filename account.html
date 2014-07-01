@@ -88,12 +88,9 @@
 	<div class="container">
 
 		<!-- Intro content -->
-		<header class="intro-content color-2">
+		<header class="intro-content">
 
-			<h1 class="page-title">Socijalno uključivanje</h1>
-			<div class="summary">
-				<p>Posebna se važnost pridaje projektima koje doprinose višoj razini zapošljivosti, te stvaranju boljih uvjeta za zapošljavane skupina u nepovoljnom položaju, kao i većoj dostupnosti socijalnih usluga.</p>
-			</div>
+			<h1 class="page-title">Postavke računa</h1>
 
 		</header>
 		<!-- /Intro content -->
@@ -101,27 +98,88 @@
 		<!-- Main content -->
 		<div class="main-content" role="main">
 
-			<article class="post post-full">
+			<form action="#">
 
-				<!-- <h1 class="page-title">Socijalno uključivanje</h1> -->
+				<h2>Pozdrav, Lucijan!</h2>
+				<p>Izmijenite postavke obavijesti koje primate od Europskog socijalnog fonda.</p>
 
-				<!-- <div class="summary">
-					<p>Posebna se važnost pridaje projektima koje doprinose višoj razini zapošljivosti, te stvaranju boljih uvjeta za zapošljavane skupina u nepovoljnom položaju, kao i većoj dostupnosti socijalnih usluga.</p>
-				</div> -->
-
-				<div class="user-content">
-
-					<p>U okviru područja socijalnog uključivanja posebna se važnost pridaje financiranju aktivnosti koje doprinose višoj razini zapošljivosti, te stvaranju boljih uvjeta za zapošljavane skupina u nepovoljnom položaju. Isto tako financiraju se i aktivnosti koje uključuju pružanje socijalnih usluga koje doprinose poboljšanju mogućnosti zapošljavanja, kao i veću dostupnost ovih usluga.</p>
-
-					<p>Socijalno uključivanje je proces koji omogućuje pojedincima i skupinama u riziku od siromaštva i društvene isključenosti veće mogućnosti za sudjelovanje u ekonomskom, društvenom i kulturnom životu zajednice, kao i veće sudjelovanje u donošenju odluka i ostvarivanju svojih prava.</p>
-
-					<p>Na natječaj su se mogle prijaviti osnovne škole i gimnazije, visoka učilišta, javne ustanove zadužene za razvoj ili provedbu obrazovnih politika, istraživački instituti iz područja obrazovanja te jedinice lokalne uprave i regionalne samouprave.</p>
-
-					<p>Ministarstvo socijalne politike i mladih i Hrvatski zavod za zapošljavanje zajednički osmišljavaju natječaje za projekte namijenjene osobama u nepovoljnom položaju, često dugotrajno nezaposlenima, korisnicima iz sustava socijalne skrbi, ali i drugim osobama u nepovoljnom položaju. Projekti u okviru ovog područja doprinose većoj zapošljivosti i socijalnoj uključenosti kroz različite aktivnosti poticajnog sufinanciranja zapošljavanja, prekvalifikacija, dokvalifikacija, poboljšanja vještina za traženje i zadržavanje zaposlenja, učenja socijalnih vještina, pružanja psihosocijalne pomoći, senzibiliziranja javnosti za probleme socijalno isključenih osoba i slično. Ujedno, projekti doprinose jačanju resursa zajednice za socijalno uključivanje skupina u nepovoljnom položaju.</p>
-
-				</div>
-
-			</article>
+				<fieldset>
+					<div class="field-container">
+						<div class="field column first required">
+							<label for="input-firstname">Ime</label>
+							<div class="group">
+								<input type="text" id="input-firstname" placeholder="Ime" value="Lucijan">
+							</div>
+						</div>
+						<div class="field column required">
+							<label for="input-lastname">Prezime</label>
+							<div class="group">
+								<input type="text" id="input-lastname" placeholder="Prezime" value="Blagonić">
+							</div>
+						</div>
+						<div class="field first required">
+							<label for="input-email">Vaš email</label>
+							<div class="group">
+								<input type="email" id="input-email" value="lucijan@blagonic.com" disabled>
+							</div>
+						</div>
+					</div>
+					<div class="field-container">
+						<div class="field type-checkbox">
+							<label for="">Želim primati obavijesti iz sljedećih kategorija:</label>
+							<div class="group">
+								<label class="checkbox">
+									Dobro upravljanje
+									<input type="checkbox" checked="checked">
+								</label>
+								<label class="checkbox">
+									Obrazovanje
+									<input type="checkbox">
+								</label>
+								<label class="checkbox">
+									Socijalno uključivanje
+									<input type="checkbox">
+								</label>
+								<label class="checkbox">
+									Zapošljavanje
+									<input type="checkbox">
+								</label>
+							</div>
+						</div>
+						<div class="field type-checkbox">
+							<label for="">Dodatne obavijesti:</label>
+							<div class="group">
+								<label class="checkbox">
+									Želim primati i novosti objavljene za odabrane kategorije
+									<input type="checkbox">
+								</label>
+							</div>
+						</div>
+						<div class="field type-radio required">
+							<label for="">Status e-maila</label>
+							<div class="group">
+								<label class="radio">
+									Želim primati obavijesti
+									<input type="radio" name="group-1" checked="checked">
+									<p>Šalju vam se e-mail obavijesti za označene kategorije.</p>
+								</label>
+								<label class="radio">
+									Ne želim primati obavijesti
+									<input type="radio" name="group-1">
+									<p>Isključuje slanje svih e-mailova na vašu e-mail adresu.</p>
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="field-container">
+						<div class="field field-action">
+							<div class="group">
+								<button type="submit" class="button button-action">Ažuriraj podatke</button>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>
 
 		</div>
 		<!-- /Main content -->
@@ -129,36 +187,7 @@
 		<!-- Secondary content -->
 		<aside class="secondary-content" role="complementary">
 
-			<!-- Widget: Archive -->
-			<div class="widget widget-archive">
 
-				<h2>Natječaji</h2>
-
-				<ul>
-					<li class="post post-listing post-compact state-opened">
-						<h3 class="title"><a href="post-full.html">Podrška programa organizacija civilnog društva aktivnih u području volonterstva na jačanju gospodarske i društvene kohezije</a></h3>
-						<p class="meta">
-							<span class="tag"><time datetime="" class="meta-date">20. 03. 2014.</time> &ndash; <time datetime="" class="meta-date">30. 06. 2014.</time></span>
-						</p>
-					</li>
-					<li class="post post-listing post-compact state-opened">
-						<h3 class="title"><a href="post-full.html">Lokalne inicijative za poticanje zapošljavanja – faza II </a></h3>
-						<p class="meta">
-							<span class="tag"><time datetime="" class="meta-date">20. 03. 2014.</time> &ndash; <time datetime="" class="meta-date">30. 06. 2014.</time></span>
-						</p>
-					</li>
-					<li class="post post-listing post-compact">
-						<h3 class="title"><a href="post-full.html">Jačanje socijalnog dijaloga </a></h3>
-						<p class="meta">
-							<span class="tag">Zatvoren natječaj</span>
-						</p>
-					</li>
-				</ul>
-
-				<a href="tender-listing-alt.html" class="button button-secondary">Svi natječaji</a>
-
-			</div>
-			<!-- /Widget: Archive -->
 
 		</aside>
 		<!-- /Secondary content -->
