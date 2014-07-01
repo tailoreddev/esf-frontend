@@ -439,15 +439,25 @@
 		@include font-size(14);
 		text-transform: uppercase;
 		margin-bottom: em(10,14);
+		&:last-child { margin-bottom: 0; }
 	}
 
 	.tag {
-		@include font-size(14);
-		font-weight: $bold;
+		@include font-size(16);
+		// font-weight: $bold;
 		display: inline-block;
 		color: #444;
+		text-transform: none;
+		// border: 1px solid $bordercolor;
 		background-color: #eee;
-		padding: em(5,14) em(8,14);
+		padding: em(3,16) em(8,16);
+		&:before {
+			@include icon-font('esf');
+			@include font-size(16);
+			margin-right: em(6,16);
+			top: em(1,16);
+			position: relative;
+		}
 	}
 
 	header + .meta { margin-top: em(10,14); }
@@ -492,7 +502,7 @@
 
 		.title {
 			@include font-size(22);
-			margin-bottom: em(10,20);
+			margin-bottom: em(10,22);
 			line-height: 1.3;
 		}
 
@@ -509,7 +519,7 @@
 		}
 
 		.tag {
-			margin-top: em(10,16);
+			// margin-top: em(10,16);
 			margin-bottom: 0;
 		}
 
@@ -518,6 +528,9 @@
 			.title { @include font-size(24); }
 			.image { max-width: 30%; }
 			.summary p { @include font-size(18); }
+		}
+		@include breakpoint(medium-large) {
+			// padding: em(30,16) 0;
 		}
 
 	}
@@ -549,6 +562,9 @@
 			.title { @include font-size(18); }
 			.summary p { @include font-size(16); }
 		}
+		@include breakpoint(medium-large) {
+			padding: em(15,16) 0;
+		}
 	}
 
 	/* Tender states */
@@ -559,9 +575,18 @@
 			text-shadow: 0 1px 1px rgba(0,0,0,.4);
 			background-color: $brand-color5;
 			margin-bottom: 0;
+			&:before {
+				content: $icon-calendar;
+			}
 		}
 	}
-	&.state-finished {}
+	&.state-finished {
+		.tag {
+			&:before {
+				content: $icon-lock;
+			}
+		}
+	}
 
 	/* Project full */
 	&.post-project {
