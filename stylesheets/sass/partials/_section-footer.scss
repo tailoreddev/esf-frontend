@@ -27,22 +27,38 @@
 	/* Footer info */
 	.footer-info {
 		@include clearfix;
-		padding-left: 140px;
 		margin-bottom: 2em;
-		h3 {
-			padding: .25em 0;
-			@include font-size(16);
-			line-height: 1.5;
-			font-weight: $regular;
-		}
-		.logo {
-			float: left;
-			margin-left: -140px;
-		}
+
 		@include breakpoint(medium) {
 			float: left;
 			width: percentage(380/940);
 			margin-bottom: 0;
+		}
+		.info-about {
+			padding-left: 140px;
+			h3 {
+				padding: .25em 0;
+				@include font-size(16);
+				line-height: 1.5;
+				font-weight: $regular;
+			}
+			.logo {
+				float: left;
+				margin-left: -140px;
+			}
+		}
+		.info-supported {
+			border-top: 1px solid rgba(0,0,0,.05);
+			padding-top: 1em;
+			margin-top: 1em;
+			padding-left: 140px;
+			.logo {
+				// float: left;
+				// margin: .25em .5em .5em 0;
+				float: left;
+				margin-top: .375em;
+				margin-left: -88px;
+			}
 		}
 	}
 

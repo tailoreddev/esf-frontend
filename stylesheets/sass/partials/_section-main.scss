@@ -121,4 +121,48 @@
 		}
 	}
 
+	/* Section landing */
+	.page-landing-section & {
+		@include breakpoint(medium-large) {
+			.intro-content {
+				position: relative;
+				overflow: hidden;
+				padding-top: 5em;
+				padding-bottom: 5em;
+				.page-title {
+					position: relative;
+					z-index: $zindex-onintro;
+				}
+				.summary {
+					padding-right: 40%;
+					position: relative;
+					z-index: $zindex-onintro;
+				}
+				.decoration {
+					position: absolute;
+					z-index: $zindex-intro;
+					left: percentage(1/3);
+					right: percentage(1/3);
+					top: 0;
+					bottom: 0;
+					display: block;
+					background-repeat: no-repeat;
+					background-position: 100% 100%;
+				}
+				&.color-1 .decoration {
+					background-image: url(../../assets/images/decoration-landing-01.png);
+				}
+				&.color-2 .decoration {
+					background-image: url(../../assets/images/decoration-landing-02.png);
+				}
+				&.color-3 .decoration {
+					background-image: url(../../assets/images/decoration-landing-03.png);
+				}
+				&.color-4 .decoration {
+					background-image: url(../../assets/images/decoration-landing-04.png);
+				}
+			}
+		}
+	}
+
 }

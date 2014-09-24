@@ -47,6 +47,8 @@ input[type="tel"], input[type="color"],	textarea, select {
 		border-color: $dangercolor;
 	}
 
+	+ label { @include font-size(14); }
+
 }
 
 textarea {

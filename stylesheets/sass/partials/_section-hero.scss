@@ -13,6 +13,8 @@
 	@extend %container-pull-top;
 	@extend %container-pull-bottom;
 	@extend %container-pull-side;
+	@include clearfix;
+	box-shadow: 0 em(1,16) em(16,16) 0 rgba(0,0,0,.2);
 
 	@include breakpoint(medium) {
 		margin: 0;
@@ -29,7 +31,7 @@
 
 	position: relative;
 	background-color: #fff;
-	// @include background-image(linear-gradient(transparent, rgba(0,0,0,.05)));
+	background-repeat: no-repeat;
 
 	border-top: 1px solid $bordercolor;
 
@@ -42,6 +44,24 @@
 	&.color-3 .detail { background-color: $brand-section3; }
 	&.color-4 .detail { background-color: $brand-section4; }
 
+	/* Background images */
+	&.card-1 {
+		background-image: url(../../assets/images/decoration-01.png);
+		background-position: 100% 100%;
+	}
+	&.card-2 {
+		background-image: url(../../assets/images/decoration-02.png);
+		background-position: 100% 100%;
+	}
+	&.card-3 {
+		background-image: url(../../assets/images/decoration-03.png);
+		background-position: 100% 100%;
+	}
+	&.card-4 {
+		background-image: url(../../assets/images/decoration-04.png);
+		background-position: 100% 100%;
+	}
+
 	@include breakpoint(small) {
 		padding: 1.5em 1.5em 1.5em 2em;
 	}
@@ -51,30 +71,37 @@
 	@include breakpoint(medium) {}
 	@include breakpoint(medium-large) {
 
-		padding: 2em;
+		padding: 2.5em;
 		min-height: 20em;
 		float: left;
-		width: percentage(460/940);
-		margin-left: percentage(20/940);
-		margin-bottom: percentage(20/940);
-		border: 1px solid $bordercolor;
-		box-shadow: 0 em(2,16) em(8,16) 0 rgba(0,0,0,.05);
+		width: 50%;
+		// width: percentage(460/940);
+		// margin-left: percentage(20/940);
+		// margin-bottom: percentage(20/940);
+		// border: 1px solid $bordercolor;
+		// box-shadow: 0 em(2,16) em(8,16) 0 rgba(0,0,0,.05);
 
 		/* Border on the left */
 		&.card-1,
 		&.card-3 {
 			clear: both;
-			padding-left: 2.75em;
+			padding-left: 3.25em;
 		}
 
 		/* Border on the right */
 		&.card-2,
 		&.card-4 {
-			padding-right: 2.75em;
+			border-left: 1px solid $bordercolor; // Add border separator
+			padding-right: 3.25em;
 			.detail {
 				left: auto;
 				right: 0;
 			}
+		}
+
+		&.card-1,
+		&.card-2 {
+			border-top: none; // Add border separator
 		}
 
 		/* Reset margin */
@@ -83,6 +110,16 @@
 
 		&.card-3,
 		&.card-4 { margin-bottom: 0; }
+
+		/* Background images */
+		&.card-1 {
+			background-image: url(../../assets/images/decoration-01-mirror.png);
+			background-position: 0 100%;
+		}
+		&.card-3 {
+			background-image: url(../../assets/images/decoration-03-mirror.png);
+			background-position: 0 100%;
+		}
 
 	}
 
@@ -158,30 +195,4 @@
 		margin-right: em(10,14);
 	}
 
-	@include breakpoint(medium) {
-
-
-
-	}
-
-}
-
-@include breakpoint(x-large) {
-
-	/* Pull left/right */
-	// .hero-content {
-	// 	margin-left: -7em;
-	// 	margin-right: -7em;
-	// }
-
-	// .card {
-	// 	&.card-1,
-	// 	&.card-3 {
-	// 		padding: 3em 3em 3em 7em;
-	// 	}
-	// 	&.card-2,
-	// 	&.card-4 {
-	// 		padding: 3em 7em 3em 3em;
-	// 	}
-	// }
 }
